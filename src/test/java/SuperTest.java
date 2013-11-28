@@ -8,6 +8,5 @@ public class SuperTest {
   public void isNotPublic() { 
     int modifiers = Super.class.getModifiers();
     boolean isPublic = isPublic(modifiers);
-    assertFalse(isPublic);    
-  }
+    assertFalse("Super is public (modifiers: " + modifiers + ").", isPublic);     }
 }
