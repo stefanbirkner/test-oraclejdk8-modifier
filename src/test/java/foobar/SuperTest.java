@@ -1,3 +1,5 @@
+package foobar;
+
 import static java.lang.reflect.Modifier.*;
 import static org.junit.Assert.*;
 
