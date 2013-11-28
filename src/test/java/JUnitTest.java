@@ -28,4 +28,12 @@ public class JUnitTest {
 		annotatedMethod.validatePublicVoidNoArg(false, errors);
 		assertEquals("Wrong numer of errors.", 1, errors.size());
 	}
+
+	@Test
+	public void has_one_annotated_method() throws Exception {
+		TestClass testClass = new TestClass(Sub.class);
+		List<FrameworkMethod> methods = testClass
+				.getAnnotatedMethods(Test.class);
+		assertEquals("Wrong number of methods.", 1, methods.size());
+	}
 }
