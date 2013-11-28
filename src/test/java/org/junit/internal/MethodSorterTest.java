@@ -1,7 +1,7 @@
 package org.junit.internal;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -179,4 +179,15 @@ public class MethodSorterTest {
         List<String> actual = getDeclaredMethodNames(DummySortWithNameAsc.class);
         assertEquals(expected, actual);
     }
+
+	static class SubWithoutOwnMethods extends Super {
+	}
+
+	@Test
+	public void providesNoDeclaredMethodsIfAllMethodsAreDeclaredBySuperClass() {
+		Method[] declaredMethods = MethodSorter
+				.getDeclaredMethods(SubWithoutOwnMethods.class);
+		assertEquals("Wrong numer of declared methods.", 0,
+				declaredMethods.length);
+	}
 }
