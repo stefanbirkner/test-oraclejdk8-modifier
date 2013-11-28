@@ -26,7 +26,7 @@ public class JUnitTest {
 				Test.class).get(0);
 		List<Throwable> errors = new ArrayList<Throwable>();
 		annotatedMethod.validatePublicVoidNoArg(false, errors);
-		assertEquals("Wrong numer of errors.", 1, errors.size());
+		assertEquals("Wrong number of errors.", 1, errors.size());
 	}
 
 	@Test
