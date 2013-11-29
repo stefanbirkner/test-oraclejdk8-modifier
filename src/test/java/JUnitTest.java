@@ -28,4 +28,13 @@ public class JUnitTest {
 				.getAnnotatedMethods(Test.class);
 		assertEquals("Wrong number of methods.", 1, methods.size());
 	}
+
+	@Test
+	public void single_annotated_method_is_declared_by_super() throws Exception {
+		TestClass testClass = new TestClass(Sub.class);
+		List<FrameworkMethod> methods = testClass
+				.getAnnotatedMethods(Test.class);
+		assertEquals("Wrong declaring class.", "foobar.Super", methods.get(0)
+				.getMethod().getDeclaringClass().getName());
+	}
 }
