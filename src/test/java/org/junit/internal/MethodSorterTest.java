@@ -180,14 +180,11 @@ public class MethodSorterTest {
         assertEquals(expected, actual);
     }
 
-	static class SubWithoutOwnMethods extends Super {
-	}
-
 	@Test
-	public void providesNoDeclaredMethodsIfAllMethodsAreDeclaredBySuperClass() {
+	public void providesNoDeclaredMethodsWhichAreDeclaredBySuperClass() {
 		Method[] declaredMethods = MethodSorter
-				.getDeclaredMethods(SubWithoutOwnMethods.class);
-		assertEquals("Wrong numer of declared methods.", 0,
+				.getDeclaredMethods(foobar.Sub.class);
+		assertEquals("Wrong numer of declared methods.", 1,
 				declaredMethods.length);
 	}
 }
