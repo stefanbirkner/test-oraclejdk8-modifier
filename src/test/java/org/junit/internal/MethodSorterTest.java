@@ -187,4 +187,13 @@ public class MethodSorterTest {
 		assertEquals("Wrong numer of declared methods.", 1,
 				declaredMethods.length);
 	}
+
+	@Test
+	public void providesDeclaredMethodsWithCorrectDeclaringCards() {
+		Method[] declaredMethods = MethodSorter
+				.getDeclaredMethods(foobar.Sub.class);
+		Method method = declaredMethods[0];
+		assertEquals("Wrong declaring class.", "foobar.Sub", method
+				.getDeclaringClass().getName());
+	}
 }
