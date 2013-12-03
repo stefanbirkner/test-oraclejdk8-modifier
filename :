@@ -1,9 +1,0 @@
-Add JUnit's MethodSorterTest.
-# Please enter the commit message for your changes. Lines starting
-# with '#' will be ignored, and an empty message aborts the commit.
-# Auf Zweig master
-# zum Eintragen bereitgestellte Änderungen:
-#   (benutze "git reset HEAD <Datei>..." zum Herausnehmen aus der Bereitstellung)
-#
-#	neue Datei:   src/test/java/org/junit/internal/MethodSorterTest.java
-#
