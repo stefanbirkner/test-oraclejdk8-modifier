@@ -1,14 +1,13 @@
 package foobar;
 import static org.junit.Assert.assertEquals;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.TestClass;
-
-import foobar.Sub;
 
 public class JUnitTest {
 	@Test
@@ -37,5 +36,14 @@ public class JUnitTest {
 				.getAnnotatedMethods(Test.class);
 		assertEquals("Wrong declaring class.", "foobar.Super", methods.get(0)
 				.getMethod().getDeclaringClass().getName());
+	}
+
+	@Test
+	public void finds_single_annotated_method_from_super() throws Exception {
+		TestClass testClass = new TestClass(Sub.class);
+		Method methodFromJunit = testClass.getAnnotatedMethods(Test.class)
+				.get(0).getMethod();
+		Method methodViaReflection = Super.class.getMethod("methodOfSuper");
+		assertEquals("Wrong method.", methodViaReflection, methodFromJunit);
 	}
 }
